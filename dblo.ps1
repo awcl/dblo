@@ -34,6 +34,10 @@ $AppsToRemove = @(
     "Microsoft.XboxSpeechToTextOverlay"
 )
 
+# If Xbox is removed, you should set these registry key values
+reg add HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\GameDVR /f /t REG_DWORD /v "AppCaptureEnabled" /d 0
+reg add HKEY_CURRENT_USER\System\GameConfigStore /f /t REG_DWORD /v "GameDVR_Enabled" /d 0
+
 # Define a list of features to disable
 $FeaturesToDisable = @(
     "Internet-Explorer-Optional-amd64",
